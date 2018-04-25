@@ -2,8 +2,8 @@
 class Game
 
     def initialize()
-        @player1 = Player.new('Anhad I')
-        @player2 = Player.new('Anhad II')
+        @player1 = Player.new('Pikachu')
+        @player2 = Player.new('Bulbasaur')
         @current_player = @player1
     end
 
@@ -16,14 +16,15 @@ class Game
             puts "Yay #{@current_player.name}! You are such a genius. \n "
         else
             puts "Seriously? No. You lose a life \n "
-            @player1.lives -= 1
+            @current_player.lose_a_life
         end
         new_turn
     end
 
     def new_turn
         (@current_player == @player1) ? @current_player = @player2 : @current_player = @player1
-        puts "--- NEW TURN ---"
+        puts "----- NEW TURN -----"
+        start_or_end_game
     end
 
     def start_or_end_game
